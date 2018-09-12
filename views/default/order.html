@@ -1,0 +1,355 @@
+{{extend 'layout.html'}}
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Shadows+Into+Light|Tangerine|Abel|Oswald" rel="stylesheet">
+        <link rel="stylesheet" href="/Dheliver/static/css/order_menu.css" />
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script src="{{=URL('static', 'js/default_index.js')}}"></script>
+<script>
+    var checkout_url = "{{=URL('default', 'checkout')}}";
+</script>
+        <head>
+            <link rel="stylesheet" href="/Dheliver/static/css/order_menu.css" />
+        </head>
+{{end}}
+
+<div class="main_content">
+  <!-- Here goes your main HTML code. -->
+  <div id="vue-div" style="display:none">
+    {{if auth.user is not None:}}
+    <center>
+        <h2 style="font-family: 'Shadows Into Light', serif;">Chose a Dining Hall!</h2>
+    </center>
+    <div class="container">
+        <div class="college_name">
+            <h6 style="margin-left: 10%; font-family: 'Shadows Into Light', serif;">
+                &emsp;
+                Cowell & Stevenson
+                &emsp;&emsp;&emsp;&emsp;
+                Crown & Merill
+                &emsp;&emsp;&emsp;&emsp;&nbsp;
+                College 9 & College 10
+                &emsp;&emsp;&emsp;&emsp;
+                Kresge & Porter
+                &emsp;&emsp;&emsp;&emsp;
+                Rachel Carson & Oakes
+            </h6>
+        </div>
+
+    </div>
+<!--
+    <div class="container">
+        <img src="img_snow.jpg" alt="Snow">
+        <button class="btn">Button</button>
+    </div>
+-->
+    <div class="container">
+        <div class="college_dh">
+
+            <input type="image" v-on:click="log_location" name="cowell" alt="Cowell & Stevenson"
+                   src="https://i.pinimg.com/originals/e7/32/e2/e732e2cbdd27dc014d912513a15a6f75.jpg" style="width:17%;height:27%;margin-left:5%;">
+
+            <input type="image" v-on:click="log_location" name="crown" alt="Crown & Merill"
+                   src="https://dining.ucsc.edu/grocery/images/bananajoes.jpg" style="width:17%;height:27%;" >
+
+            <input type="image" v-on:click="log_location" name="ten" alt="College 9 & College 10"
+                   src="https://pbs.twimg.com/media/DctTOTRVMAAPMaM.jpg" style="width:17%;height:27%;">
+
+            <input type="image" v-on:click="log_location" name="porter" alt="Kresge & Porter"
+                   src="https://porter.ucsc.edu/images/hungry-slug.jpg" style="width:17%;height:27%;">
+
+            <input type="image" v-on:click="log_location" name="rcc" alt="Rachel Carson & Oaks"
+                   src="https://housing.ucsc.edu/guide/rachelcarson/images/04.jpg" style="width:17%;height:27%;">
+
+        </div>
+    </div>
+
+    <center>
+        <h2 style="font-family: 'Shadows Into Light', serif;"> Choose a Meal Time! </h2>
+    </center>
+    <div class="college_name">
+            <h6 style="margin-left: 20em; font-family: 'Shadows Into Light', serif;">
+                &emsp;&emsp;
+                Breakfast
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                Lunch
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                Dinner
+            </h6>
+        </div>
+    <div class="container">
+        <div class="time_of_day">
+            <input type="image" v-on:click="log_time" name="breakfast" alt="Breakfast"
+                   src="https://d9hyo6bif16lx.cloudfront.net/live/img/production/detail/menu/breakfast_breakfast-classics_big-two-do-breakfast.jpg" style="width:17%;height:27%;margin-left:29em;">
+            <input type="image" v-on:click="log_time" name="lunch" alt="Lunch"
+                   src="https://media2.s-nbcnews.com/i/newscms/2017_39/1285107/school-lunchbox-today-170926-tease_9393858e7b7086103aa4414ae528f88b.jpg" style="width:17%;height:27%;">
+            <input type="image" v-on:click="log_time" name="dinner" alt="Dinner"
+                   src="https://www.budgetbytes.com/wp-content/uploads/2018/01/Sheet-Pan-BBQ-Meatloaf-Dinner-plate.jpg" style="width:17%;height:27%;">
+        </div>
+    </div>
+
+
+        {{for item in cowellBreakfast:}}
+          <h6 v-if="cowell && breakfast">
+
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                       </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in cowellLunch:}}
+          <h6 v-if="cowell && lunch">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in cowellDinner:}}
+          <h6 v-if="cowell && dinner">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in crownBreakfast:}}
+          <h6 v-if="crown && breakfast">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in crownLunch:}}
+          <h6 v-if="crown && lunch">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                          {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in crownDinner:}}
+          <h6 v-if="crown && dinner">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in tenBreakfast:}}
+          <h6 v-if="ten && breakfast">
+            <table>
+                <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+             </table>
+          </h6>
+        {{pass}}
+
+        {{for item in tenLunch:}}
+          <h6 v-if="ten && lunch">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in tenDinner:}}
+          <h6 v-if="ten && dinner">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in porterBreakfast:}}
+          <h6 v-if="porter && breakfast">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in porterLunch:}}
+          <h6 v-if="porter && lunch">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in porterDinner:}}
+          <h6 v-if="porter && dinner">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in rccBreakfast:}}
+          <h6 v-if="rcc && breakfast">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                          {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in rccLunch:}}
+          <h6 v-if="rcc && lunch">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+        {{for item in rccDinner:}}
+          <h6 v-if="rcc && dinner">
+              <table>
+                  <tr>
+                      <th>
+                          <center>
+                              <input id="checkBox" value="{{=item}}" type="checkbox" v-on:click="add_to_cart">
+                                {{=item}}
+                              </input>
+                          </center>
+                      </th>
+                  </tr>
+              </table>
+          </h6>
+        {{pass}}
+
+      <div class="login_button">
+          <center>
+              <a style="margin-top: 2%" href="{{=URL('default', 'index')}}" class="btn rounded" onclick="cash_popup()">Pay by Cash</a>
+              <script>
+                  function cash_popup() {
+                      alert("Thanks for using Dheliver! Your order will arrive soon! Please pay $5 for the delivery when it arrives!");
+                  }
+              </script>
+          </center>
+          <center>
+              <a style="margin-top: 2%" href="{{=URL('default', 'checkout')}}" class="btn rounded">Pay by Card</a>
+          </center>
+      </div>
+    </center>
+</center>
+
+
+
+
+{{pass}}
+
+
+  </div>
+</div>

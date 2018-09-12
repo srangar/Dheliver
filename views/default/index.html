@@ -1,0 +1,177 @@
+{{extend 'layout.html'}}
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Shadows+Into+Light|Tangerine|Abel|Oswald" rel="stylesheet">
+
+{{block head}}
+{{end}}
+
+<div class="main_content">
+
+  <!-- Here goes your main HTML code. -->
+  {{if auth.user is not None:}}
+      <div class="container">
+        <div class="quarter">
+          <div class="box">
+            <img src="https://eis-blog.soe.ucsc.edu/wp-content/uploads/2015/06/ucsc-stack.jpg" width="200" height="65" align="bottom"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="quarter">
+            <div class = "Padded">
+              <br><br>
+              <h6 style="font-family: 'Shadows Into Light', serif;">Current UCSC Dining Halls</h6>
+              <p style="font-family: 'Abel', serif;">Colleges Nine & Ten Dining Hall</p>
+              <p style="font-family: 'Abel', serif;">
+                &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 502-8397
+              </p>
+              <p style="font-family: 'Abel', serif;">Cowell/Stevenson Dining Hall</p>
+              <p style="font-family: 'Abel', serif;">
+                &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-4609
+              </p>
+              <p style="font-family: 'Abel', serif;">Crown/Merrill Dining Hall</p>
+              <p style="font-family: 'Abel', serif;">
+                &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-4619
+              </p>
+              <p style="font-family: 'Abel', serif;">Porter/Kresge Dining Hall</p>
+              <p style="font-family: 'Abel', serif;">
+                &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-4774
+              </p>
+              <p style="font-family: 'Abel', serif;">Rachel Carson/Oakes Dining Hall</p>
+              <p style="font-family: 'Abel', serif;">
+                &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-3547
+              </p>
+          </div>
+      </div>
+
+        <div class="half">
+          <h1 class="center" style="font-family: 'Tangerine', serif;">Welcome to Dheliver!</h1>
+          <h3 class = "center" style="font-family: 'Oswald', serif;">UCSC's Premier Dining Hall Delivery Service</h3>
+
+          <div class="container">
+            <div class="center">
+              <h5 style="font-family: 'Oswald', serif;">Click here to begin your order</h5>
+              <center>
+              <div class="login_button">
+                  <a href="{{=URL('default', 'order')}}" class="btn rounded">Order</a>
+              </div>
+            </center>
+            </div>
+
+          </div>
+
+          <div class="container">
+              <div class="half">
+                  <h5 style="font-family: 'Oswald', serif;" align="middle">FAQs</h5>
+                  <h5 style="" align="middle">
+                      <div class="login_button">
+                          <a href="{{=URL('default', 'faq')}}" class="btn rounded" align="middle">FAQs</a>
+                      </div>
+                  </h5>
+              </div>
+
+              <div class="half">
+                  <h5 style="font-family: 'Oswald', serif;" align="middle">About Us</h5>
+                  <h5 style="" align="middle">
+                      <div class="login_button">
+                          <a href="{{=URL('default', 'about')}}" class="btn rounded">About</a>
+                      </div>
+                  </h5>
+              </div>
+          </div>
+
+          <div class="container">
+            <center>
+              <div class="half">
+                <h5 style="font-family: 'Oswald', serif;">Delivery Partner Portal</h5>
+                <div class="login_button">
+                    <a href="{{=URL('default', 'deliveries')}}" class="btn rounded">Go</a>
+                </div>
+              </div>
+            </center>
+          </div>
+
+        </div>
+
+        <div class="quarter">
+          <div class="lifted">
+            <img src="http://nutrition.sa.ucsc.edu/Pictures/slideshow1.jpg" align="bottom"/>
+          </div>
+          <br>
+          <div class="lifted">
+            <img src="http://nutrition.sa.ucsc.edu/Pictures/slideshow4.jpg" align="bottom"/>
+          </div>
+        </div>
+      </div>
+
+  {{else:}}
+
+      <div class="container">
+        <div class="quarter">
+          <div class="box">
+            <img src="https://eis-blog.soe.ucsc.edu/wp-content/uploads/2015/06/ucsc-stack.jpg" width="200" height="65" align="bottom"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="quarter">
+          <div class = "Padded">
+            <br><br>
+            <h6 style="font-family: 'Shadows Into Light', serif;">Current UCSC Dining Halls</h6>
+            <p style="font-family: 'Abel', serif;">Colleges Nine & Ten Dining Hall</p>
+            <p style="font-family: 'Abel', serif;">
+              &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 502-8397
+            </p>
+            <p style="font-family: 'Abel', serif;">Cowell/Stevenson Dining Hall</p>
+            <p style="font-family: 'Abel', serif;">
+              &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-4609
+            </p>
+            <p style="font-family: 'Abel', serif;">Crown/Merrill Dining Hall</p>
+            <p style="font-family: 'Abel', serif;">
+              &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-4619
+            </p>
+            <p style="font-family: 'Abel', serif;">Porter/Kresge Dining Hall</p>
+            <p style="font-family: 'Abel', serif;">
+              &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-4774
+            </p>
+            <p style="font-family: 'Abel', serif;">Rachel Carson/Oakes Dining Hall</p>
+            <p style="font-family: 'Abel', serif;">
+              &nbsp&nbsp&nbsp&nbsp<i class="fa fa-phone-square"></i> (831) 459-3547
+            </p>
+          </div>
+        </div>
+
+        <div class="half">
+          <h1 style="font-family: 'Tangerine', serif;">Welcome to Dheliver!</h1>
+          <h3 style="font-family: 'Oswald', serif;">UCSC's Premier Dining Hall Delivery Service</h3>
+
+          <h5 style="font-family: 'Oswald', serif;">Please begin by logging in.</h5>
+          <div class="login_button">
+              <a href="{{=URL('default', 'user')}}" class="btn rounded">Login</a>
+          </div>
+
+          <br><br><br><br><br><br>
+          <b>We Proudly Accept</b>
+          <br>
+          <img src="/Dheliver/static/images/visa.png"/>
+          <img src="/Dheliver/static/images/mastercard.png"/>
+          <img src="/Dheliver/static/images/amex.png"/>
+          <img src="/Dheliver/static/images/discover.png"/>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <img src="/Dheliver/static/images/powered_by_stripe.png"/>
+        </div>
+
+        <div class="quarter">
+          <div class="lifted">
+            <img src="http://nutrition.sa.ucsc.edu/Pictures/slideshow1.jpg" align="bottom"/>
+          </div>
+          <br>
+          <div class="lifted">
+            <img src="http://nutrition.sa.ucsc.edu/Pictures/slideshow4.jpg" align="bottom"/>
+          </div>
+        </div>
+      </div>
+
+  {{pass}}
+</div>

@@ -1,0 +1,1 @@
+['breakfast', 'cage free scrambled eggs', 'chicken apple sausage', 'natural bridgestofu scramble', 'texas french toast', 'oatmeal gluten-free', "potatoes o'brien", 'steamed rice', 'chocolate chip muffin', 'cinnamon roll', 'strawberry almond muffin', 'vegan granola nut', 'cage free omelette bar']

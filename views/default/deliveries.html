@@ -1,0 +1,39 @@
+{{extend 'layout.html'}}
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Shadows+Into+Light|Tangerine|Abel|Oswald" rel="stylesheet">
+
+{{block head}}
+{{end}}
+
+<div class="main_content">
+    <center>
+        <h2 style="font-family: 'Shadows Into Light', serif;">Deliveries Page</h2>
+    </center>
+
+    <h2>Listings</h2>
+    {{for ol in orderlists:}}
+
+     <div class="memo">
+        <div class="memo_text">
+          <div class="memo_title">{{=ol.user_email}} from {{=ol.dh}}</div>
+          <div class="memo_content">Requested: {{=ol.menu_item}} on {{=ol.updated_on}} </div>
+        </div>
+        <div>
+          <div class="button_list">
+            <div class="buttons">
+                   {{if ol.is_public == True:}}
+                    <a class="btn rounded" href="{{=URL('default', 'togglePublic', args=[ol.id])}}">
+                          <i class="fa fa-plus"></i>
+                    </a>
+                 {{pass}}
+                {{if ol.is_public == False:}}
+                   <a class="btn rounded" href="{{=URL('default', 'togglePublic', args=[ol.id])}}">
+                          <i class="fa fa-check"></i>
+                    </a>
+                 {{pass}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {{pass}}
+</div>
